@@ -30,5 +30,9 @@ $ py -m SimpleHTTPServer 9000
 ```
 $ py -m http.server 9000
 ```
+
 #### Target Ran Script, Nothing Received
-Make sure your target has Python installed
+Make sure your target has Python installed, and you're running HTTP server (step 5)
+
+# Security Issues
+1. Target has access to your machine IP due to line 52 requiring your IP to transfer files
