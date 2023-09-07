@@ -27,7 +27,7 @@ $ ngrok config add-authtoken <token>
 ```
 5. Start tunnel on port 8000:
 ```
-$ ngrok http 80
+$ ngrok http 8000
 ```
 If successfull, you should see all of your system directories as embeded links.
 
